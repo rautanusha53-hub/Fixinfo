@@ -66,7 +66,7 @@ def health():
 def player():
     """Look up player information using the key supplied in the URL.
 
-    Example: /api/player?uid=1871114586&key=HNTH
+    Example: /api/player?uid=PLAYER_UID&key=YOUR_API_KEY
     No Vercel UPSTREAM_KEY environment variable is required. The supplied
     key is forwarded to the upstream provider as its `key` parameter.
     """
@@ -78,7 +78,7 @@ def player():
     if not api_key:
         return no_store({
             "error": "Missing API key",
-            "message": "Add key=HNTH to the URL."
+            "message": "Add your API key as the 'key' parameter, e.g. ?uid=PLAYER_UID&key=YOUR_API_KEY"
         }, 400)
 
     if not uid or len(uid) < 4:
